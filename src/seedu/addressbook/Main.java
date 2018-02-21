@@ -8,6 +8,7 @@ import seedu.addressbook.commands.Command;
 import seedu.addressbook.commands.CommandResult;
 import seedu.addressbook.commands.ExitCommand;
 import seedu.addressbook.data.AddressBook;
+import seedu.addressbook.data.exception.IllegalValueException;
 import seedu.addressbook.data.person.ReadOnlyPerson;
 import seedu.addressbook.parser.Parser;
 import seedu.addressbook.storage.StorageFile;
@@ -33,12 +34,12 @@ public class Main {
     private List<? extends ReadOnlyPerson> lastShownList = Collections.emptyList();
 
 
-    public static void main(String... launchArgs) {
+    public static void main(String... launchArgs) throws IllegalValueException {
         new Main().run(launchArgs);
     }
 
     /** Runs the program until termination.  */
-    public void run(String[] launchArgs) {
+    public void run(String[] launchArgs) throws IllegalValueException {
         start(launchArgs);
         runCommandLoopUntilExitCommand();
         exit();
@@ -79,7 +80,7 @@ public class Main {
     }
 
     /** Reads the user command and executes it, until the user issues the exit command.  */
-    private void runCommandLoopUntilExitCommand() {
+    private void runCommandLoopUntilExitCommand() throws IllegalValueException {
         Command command;
         do {
             String userCommandText = ui.getUserCommand();

@@ -23,7 +23,7 @@
   list
 
 ##########################################################
-# test add person command, setup state for futuer tests
+# test add person command, setup state for future tests
 ##########################################################
 
   # should catch invalid args format
@@ -53,6 +53,19 @@
 
   # should not allow adding duplicate persons
   add Esther Potato p/555555 e/esther@not.a.real.potato pa/555, epsilon street t/tubers t/starchy
+  
+##########################################################
+# test change number of person command, setup state for future tests
+##########################################################
+  # should catch index out of bound
+  changenum 10 99999999
+  
+  # should catch invalid phone number
+  changenum 3 abcde
+
+  # should change phone number correctly and list non private information
+  changenum 3 99998888
+  list
 
 ##########################################################
 # test view/viewall persons command

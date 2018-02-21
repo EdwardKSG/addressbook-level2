@@ -26,6 +26,7 @@ public class Person implements ReadOnlyPerson {
         this.address = address;
         this.tags = new UniqueTagList(tags); // protect internal tags from changes in the arg list
     }
+    
 
     /**
      * Copy constructor.
@@ -64,6 +65,10 @@ public class Person implements ReadOnlyPerson {
      */
     public void setTags(UniqueTagList replacement) {
         tags.setTags(replacement);
+    }
+    
+    public void setPhone(String num) {
+        this.phone.setNum(num);
     }
 
     @Override
