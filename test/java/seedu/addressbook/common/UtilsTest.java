@@ -46,7 +46,7 @@ public class UtilsTest {
     }
     
     @Test
-    private void isAnyNull() throws Exception{
+    public void isAnyNull() throws Exception{
         //no null elements
         checkContainsNull_noNull_returnFalse("abc", "aaa", "xyz");
         checkContainsNull_noNull_returnFalse();
